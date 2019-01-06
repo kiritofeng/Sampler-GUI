@@ -3,16 +3,16 @@ import javax.swing.*;
 
 public class IconPane extends JPanel {
 
-    protected Image icon;
+    protected ImageIcon icon;
 
-    public IconPane(Image icon) {
+    public IconPane(ImageIcon icon) {
         this.icon = icon;
+        setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
         repaint();
     }
 
     @Override
-    protected void paintComponent(Graphics G) {
-        Image scaledImage = icon.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        G.drawImage(scaledImage, 0, 0,getWidth(), getHeight(), null);
+    public void paintComponent(Graphics G) {
+        G.drawImage(icon.getImage(), 0, 0,getWidth(), getHeight(), null);
     }
 }

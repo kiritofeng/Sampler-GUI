@@ -16,7 +16,12 @@ public class ImagePane extends JPanel {
 
     @Override
     public void paintComponent(Graphics G) {
-        Image scaledImage = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        G.drawImage(scaledImage, 0, 0,getWidth(), getHeight(), null);
+        if(img == null) {
+            G.setColor(Color.BLACK);
+            G.fillRect(0, 0, getWidth(), getHeight());
+        } else {
+            Image scaledImage = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+            G.drawImage(scaledImage, 0, 0,getWidth(), getHeight(), null);
+        }
     }
 }
