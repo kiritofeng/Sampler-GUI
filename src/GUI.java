@@ -95,4 +95,8 @@ public class GUI extends JFrame {
         temperature.setValue(temp);
         temperature.setString(String.valueOf(temp));
     }
+
+    public void setFeedImage(Image img) {
+        feed.setImage(img);
+    }
 }
